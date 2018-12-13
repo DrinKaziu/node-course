@@ -11,7 +11,7 @@ app.set('view engine', 'hbs');
 app.use((req, res, next) => {
   let now = new Date().toString();
   let log = `${now}: ${req.method} - ${req.url}`;
-  fs.appendFileSync('server.log', log + '\n', (err) => {
+  fs.appendFile('server.log', log + '\n', (err) => {
     console.log('Unable to append to server.log');
   });
   console.log(log);
